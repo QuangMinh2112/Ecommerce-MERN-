@@ -1,0 +1,9 @@
+###
+POST http://localhost:5000/api/insert/productCategory
+
+
+###
+POST http://localhost:5000/api/insert
+
+###
+POST http://localhost:5000/api/user/mock

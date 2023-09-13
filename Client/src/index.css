@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #dcdde1;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }
+}
+.custom_slider button.slick-prev {
+  z-index: 10;
+  left: 20px;
+}
+.custom_slider button.slick-next {
+  right: 80px;
+  z-index: 10;
+}
+.custom_slider button.slick-prev::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276E";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom_slider button.slick-next::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276F";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider_product_children button.slick-prev {
+  z-index: 10;
+  left: 20px;
+  top: 42px;
+}
+.slider_product_children button.slick-next {
+  right: 80px;
+  top: 42px;
+  z-index: 10;
+}
+.slider_product_children button.slick-prev::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276E";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider_product_children button.slick-next::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276F";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-images-slider .swiper-slide {
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.product-images-slider .swiper-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.product-images-slider .swiper-button-prev {
+  left: 0;
+  color: #000 !important;
+}
+
+.product-images-slider .swiper-button-next {
+  right: 0;
+  color: #000 !important;
+}
+.product-images-slider-thumbs .swiper-slide {
+  cursor: pointer;
+  border: 1px solid #dddbdb;
+}
+.product-images-slider-thumbs .swiper-slide-thumb-active {
+  border-color: #ff0000;
+}
+.product-images-slider-thumbs-wrapper {
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.product-images-slider-thumbs-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#image {
+  width: 500px;
+  height: 500px;
+}
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.image-wrapper:before,
+.image-wrapper:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.171);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.image-wrapper:before {
+  top: 0;
+  left: 0;
+  /* border-top: 35px solid transparent; */
+  border-right: 35px solid rgba(255, 255, 255, 0.171);
+  z-index: 2;
+}
+
+.image-wrapper:after {
+  bottom: 0;
+  right: 0;
+  /* border-bottom: 35px solid transparent; */
+  border-left: 35px solid rgba(255, 255, 255, 0.171);
+  z-index: 2;
+}
+
+.image-wrapper:hover:before {
+  width: 100%;
+  height: 100%;
+  transition-delay: 0s;
+}
+
+.image-wrapper:hover:after {
+  width: 100%;
+  height: 100%;
+  transition-delay: 0.15s;
+}
+
+/* Mansory-css */
+/* .my-masonry-grid {
+  display: -webkit-box; 
+  display: -ms-flexbox; 
+  display: flex;
+  width: auto;
+}
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+ */
+.my-masonry-grid_column > div {
+  margin-bottom: 20px;
+}
+.w-500 {
+  width: 500px;
+}
+
+.hide_scrollY {
+  overflow: hidden !important;
+}

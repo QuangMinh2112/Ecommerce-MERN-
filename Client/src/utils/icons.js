@@ -1,0 +1,102 @@
+import { HiPhone, HiMail, HiOutlineShoppingCart } from "react-icons/hi";
+import { GiShoppingBag, GiSmartphone, GiHeadphones } from "react-icons/gi";
+import {
+  FaRegMoneyBillAlt,
+  FaUserCircle,
+  FaProductHunt,
+  FaStreetView,
+} from "react-icons/fa";
+import {
+  MdArrowDropDown,
+  MdEmail,
+  MdKeyboardArrowRight,
+  MdDashboardCustomize,
+  MdGroups,
+  MdOutlineDashboardCustomize,
+  MdOutlineKeyboardReturn,
+} from "react-icons/md";
+import { TfiTablet } from "react-icons/tfi";
+import {
+  AiOutlineCamera,
+  AiOutlinePrinter,
+  AiOutlineDesktop,
+  AiFillStar,
+  AiOutlineStar,
+  AiFillEye,
+  AiOutlineDown,
+  AiOutlineCaretDown,
+  AiOutlineCaretRight,
+  AiFillEdit,
+  AiFillDelete,
+  AiOutlineMail,
+  AiOutlineLogin,
+} from "react-icons/ai";
+import {
+  BsTablet,
+  BsLaptop,
+  BsSpeaker,
+  BsFillSuitHeartFill,
+  BsDot,
+  BsFillCartPlusFill,
+  BsFillCartCheckFill,
+  BsArrowRight,
+  BsTrash,
+  BsFillCartFill,
+  BsCheckLg,
+} from "react-icons/bs";
+import { BiMenu, BiLogOut, BiEdit, BiCustomize } from "react-icons/bi";
+import { IoIosArrowForward } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
+const icons = {
+  HiPhone,
+  HiMail,
+  HiOutlineShoppingCart,
+  GiShoppingBag,
+  GiSmartphone,
+  GiHeadphones,
+  FaRegMoneyBillAlt,
+  FaUserCircle,
+  FaProductHunt,
+  FaStreetView,
+  TfiTablet,
+  MdArrowDropDown,
+  MdEmail,
+  MdGroups,
+  BsTablet,
+  BsLaptop,
+  BsDot,
+  BsSpeaker,
+  BsCheckLg,
+  BsFillCartPlusFill,
+  BsFillCartCheckFill,
+  BsFillSuitHeartFill,
+  BsFillCartFill,
+  BsArrowRight,
+  BsTrash,
+  AiOutlineCamera,
+  AiOutlinePrinter,
+  AiOutlineDesktop,
+  AiFillStar,
+  AiOutlineLogin,
+  AiOutlineMail,
+  AiOutlineStar,
+  AiFillEye,
+  AiOutlineDown,
+  AiOutlineCaretDown,
+  AiOutlineCaretRight,
+  AiFillDelete,
+  AiFillEdit,
+  BiMenu,
+  BiLogOut,
+  BiEdit,
+  BiCustomize,
+  IoIosArrowForward,
+  MdKeyboardArrowRight,
+  MdDashboardCustomize,
+  MdOutlineDashboardCustomize,
+  MdOutlineKeyboardReturn,
+  RiDeleteBin6Line,
+};
+
+export default icons;
