@@ -1,8 +1,9 @@
 import React, { memo } from "react";
 import Slider from "react-slick";
 import Product from "../Products";
+import Blog from "components/Blog";
 
-const CustomSlider = ({ products, isActive, isHideNew, toShow }) => {
+const CustomSlider = ({ products, isActive, blogs, isHideNew, toShow }) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -11,7 +12,7 @@ const CustomSlider = ({ products, isActive, isHideNew, toShow }) => {
     slidesToScroll: 1,
   };
   return (
-    <div className="">
+    <>
       {products && (
         <Slider className="custom_slider" {...settings}>
           {products?.map((item) => (
@@ -24,7 +25,19 @@ const CustomSlider = ({ products, isActive, isHideNew, toShow }) => {
           ))}
         </Slider>
       )}
-    </div>
+      {/* {blogs && (
+        <Slider className="custom_slider_blogs" {...settings}>
+          {blogs?.map((item) => (
+            <Blog
+              key={item._id}
+              data={item}
+              isNew={isActive === 0 ? false : true}
+              isHideNew={isHideNew}
+            />
+          ))}
+        </Slider>
+      )} */}
+    </>
   );
 };
 

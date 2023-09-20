@@ -56,6 +56,42 @@ body {
   align-items: center;
   justify-content: center;
 }
+/* new */
+.custom_slider_blogs button.slick-prev {
+  z-index: 10;
+  left: 0;
+  top: 183px;
+}
+.custom_slider_blogs button.slick-next {
+  right: 98px;
+  z-index: 10;
+  top: 183px;
+}
+.custom_slider_blogs button.slick-prev::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276E";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom_slider_blogs button.slick-next::before {
+  color: red;
+  background: #e8e8e8;
+  content: "\276F";
+  color: red;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .slider_product_children button.slick-prev {
   z-index: 10;
   left: 20px;

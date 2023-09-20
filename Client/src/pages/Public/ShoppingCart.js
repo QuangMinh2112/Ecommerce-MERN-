@@ -2,10 +2,10 @@ import { BreadCrumb, Button, withBaseLogic } from "components";
 import OrderItem from "components/Products/OrderItem";
 import { useSelector } from "react-redux";
 import { updateCart } from "redux/user/userSlice";
-import { icons } from "utils";
+import { icons, path } from "utils";
 import { formatPrice } from "utils/helper";
 const { BsArrowRight } = icons;
-const ShoppingCart = ({ dispatch }) => {
+const ShoppingCart = ({ dispatch, navigate }) => {
   const { currentCart } = useSelector((state) => state.user);
 
   const handleChangeQuantities = (pid, qty, color) => {
@@ -54,7 +54,10 @@ const ShoppingCart = ({ dispatch }) => {
             Shipping, taxes, and discounts calculated at checkout.
           </p>
           <div className="w-full grid justify-end col-span-10">
-            <Button style="w-[200px] flex items-center  mt-4 py-[10px] justify-center bg-red-500 text-white gap-3 hover:bg-black hover:duration-500">
+            <Button
+              handleOnClick={() => navigate(`/${path.CHECKOUT}`)}
+              style="w-[200px] flex items-center  mt-4 py-[10px] justify-center bg-red-500 text-white gap-3 hover:bg-black hover:duration-500"
+            >
               CHECKOUT
               <BsArrowRight />
             </Button>

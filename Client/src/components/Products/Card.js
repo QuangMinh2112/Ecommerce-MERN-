@@ -14,7 +14,9 @@ const Productcard = ({ id, title, price, category, image, totalRatings }) => {
         </NavLink>
         <div className="flex flex-col mt-[15px] items-start gap-1 w-full">
           <NavLink
-            to={`${category?.toLowerCase()}/${id}/${title}`}
+            to={`${category?.toLowerCase()}/${id}/${title
+              .replace(/\s+/g, "-")
+              .toLowerCase()}`}
             className="text-sm capitalize cursor-pointer hover:text-main"
           >
             {title.toLowerCase()}

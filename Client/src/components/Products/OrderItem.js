@@ -27,16 +27,16 @@ const OrderItem = ({ el, handleChangeQuantities, defaultQuantity = 1 }) => {
   return (
     <div className="grid grid-cols-10 place-items-center w-full justify-between border-b p-5 border-[#ccc]">
       <NavLink
-        to={`/${el?.product?.category?.toLowerCase()}/${el?.product?._id}/${
-          el?.title
-        }`}
+        to={`/${el?.product?.category?.toLowerCase()}/${
+          el?.product?._id
+        }/${el?.title.replace(/\s+/g, "-").toLowerCase()}`}
         key={el._id}
         className="w-full col-span-6 md:col-span-4"
       >
         <img
           src={el?.thumbnail}
           alt="images_product"
-          className="w-[200px] h-[200px] cursor-pointer rounded-lg"
+          className="w-[200px] h-[200px] cursor-pointer rounded-lg object-contain"
         />
       </NavLink>
 

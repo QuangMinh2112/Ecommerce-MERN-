@@ -34,7 +34,10 @@ const ProductImageSlider = (props) => {
       >
         {props?.images?.map((item, index) => (
           <SwiperSlide className="mt-3" key={index}>
-            <div className="product-images-slider-thumbs-wrapper">
+            <div
+              className="product-images-slider-thumbs-wrapper"
+              onClick={() => props.handleTest(item)}
+            >
               <img src={item} alt="product images" className="p-4" />
             </div>
           </SwiperSlide>

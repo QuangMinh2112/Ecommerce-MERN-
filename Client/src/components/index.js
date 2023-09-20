@@ -37,3 +37,4 @@ export { default as Banner } from "./Common/Banner";
 export { default as QuickView } from "./Products/QuickView";
 export { default as Cart } from "./Products/Cart";
 export { default as withBaseLogic } from "./Hoc/withBaseLogic";
+export { default as Blog } from "./Blog/index";

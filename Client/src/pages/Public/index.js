@@ -8,3 +8,5 @@ export { default as Blog } from "./Blog";
 export { default as Resetpassword } from "./Resetpassword";
 export { default as ShoppingCart } from "./ShoppingCart";
 export { default as Contact } from "./Contact";
+export { default as Checkout } from "./Checkout";
+export { default as DetailBlog } from "./DetailBlog";

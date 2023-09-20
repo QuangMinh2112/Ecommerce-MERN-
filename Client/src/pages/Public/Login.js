@@ -122,7 +122,10 @@ const Login = ({ navigate, dispatch }) => {
           className="absolute top-0 left-0 right-0 bottom-0 bg-overlay z-50 flex flex-col justify-center items-center"
           onClick={() => setIsVerifyEmail(false)}
         >
-          <div className="w-[500px] bg-white rounded-md p-8">
+          <div
+            className="w-[500px] bg-white rounded-md p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h4>
               We send a code to your mail. Please check your email and enter
               your code here !

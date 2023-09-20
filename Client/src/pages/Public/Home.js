@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import {
   Banner,
   BestSeller,
+  Blog,
   CustomSlider,
   DealDaily,
   FeatureProduct,
   HotCollection,
   Sidebar,
 } from "../../components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import { useSelector } from "react-redux";
 var screenWidth;
+
 const Home = () => {
   const { newProducts } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.app);
+  const { blogs } = useSelector((state) => state.blog);
   // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [smScreen, setSmScreen] = useState(false);
   const [mdScreen, setMdScreen] = useState(false);
@@ -78,6 +83,25 @@ const Home = () => {
             ?.map((item) => (
               <HotCollection key={item._id} data={item} />
             ))}
+        </div>
+      </div>
+      <div className="my-8 w-full xl:w-main md:p-[25px]">
+        <h3 className="text-[20px] font-semibold py-[15x] border-b-2 border-main">
+          BLOG POSTS
+        </h3>
+        <div className="flex flex-wrap justify-between gap-4 mt-4">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={smScreen ? 1 : mdScreen ? 2 : 3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {blogs?.map((item) => (
+              <SwiperSlide>
+                <Blog key={item._id} data={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </>

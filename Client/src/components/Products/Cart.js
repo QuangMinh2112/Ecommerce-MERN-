@@ -37,7 +37,7 @@ const Cart = ({ dispatch, navigate }) => {
               <img
                 src={item?.thumbnail}
                 alt="thumb"
-                className="w-full h-full"
+                className="w-full h-full object-cover"
                 onClick={() => {
                   dispatch(showCart({ signal: false }));
                   navigate(
@@ -108,8 +108,13 @@ const Cart = ({ dispatch, navigate }) => {
           >
             SHOPPPING CART
           </button>
-          <button className="w-full flex items-center  mt-4 py-[10px] justify-center bg-red-500 text-white gap-3 hover:bg-black hover:duration-500">
-            <span></span>
+          <button
+            onClick={() => {
+              navigate(`${path.CHECKOUT}`);
+              dispatch(showCart({ isShowCart: false }));
+            }}
+            className="w-full flex items-center  mt-4 py-[10px] justify-center bg-red-500 text-white gap-3 hover:bg-black hover:duration-500"
+          >
             CHECKOUT
           </button>
         </div>

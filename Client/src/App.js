@@ -3,7 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { path } from "./utils";
 import {
   Blog,
+  Checkout,
   Contact,
+  DetailBlog,
   Detailproduct,
   FinalRegister,
   Home,
@@ -27,6 +29,7 @@ import { History } from "pages/Member/History";
 import Wishlist from "pages/Member/Wishlist";
 import { showCart, showSideBar } from "redux/app/appSlice";
 import SidebarResponsive from "components/Sidebar/Default/SidebarResponsive";
+import { getBlog } from "redux/blog/asyncAction";
 function App() {
   const dispatch = useDispatch();
   const { isShowModal, modalChildren, isShowCart, isShowSideBar } = useSelector(
@@ -34,6 +37,7 @@ function App() {
   );
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getBlog());
   }, [dispatch]);
 
   return (
@@ -65,6 +69,7 @@ function App() {
             element={<Detailproduct />}
           />
           <Route path={path.BLOGS} element={<Blog />} />
+          <Route path={path.DETAIL_BLOGS} element={<DetailBlog />} />
           <Route path={path.CONTACTS} element={<Contact />} />
           <Route path={path.ALL} element={<Home />} />
           <Route path={path.CART} element={<ShoppingCart />} />
@@ -88,6 +93,7 @@ function App() {
         </Route>
         {/* End-Member */}
         <Route path={path.RESET_PASSWORD} element={<Resetpassword />} />
+        <Route path={path.CHECKOUT} element={<Checkout />} />
 
         <Route path={path.LOGIN} element={<Login />} />
         <Route path={path.FINAL_REGISTER} element={<FinalRegister />} />

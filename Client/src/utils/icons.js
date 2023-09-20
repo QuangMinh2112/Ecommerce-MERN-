@@ -1,4 +1,9 @@
-import { HiPhone, HiMail, HiOutlineShoppingCart } from "react-icons/hi";
+import {
+  HiPhone,
+  HiMail,
+  HiOutlineShoppingCart,
+  HiOutlineArrowNarrowRight,
+} from "react-icons/hi";
 import { GiShoppingBag, GiSmartphone, GiHeadphones } from "react-icons/gi";
 import {
   FaRegMoneyBillAlt,
@@ -44,7 +49,13 @@ import {
   BsFillCartFill,
   BsCheckLg,
 } from "react-icons/bs";
-import { BiMenu, BiLogOut, BiEdit, BiCustomize } from "react-icons/bi";
+import {
+  BiMenu,
+  BiLogOut,
+  BiEdit,
+  BiCustomize,
+  BiArrowBack,
+} from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -52,6 +63,7 @@ const icons = {
   HiPhone,
   HiMail,
   HiOutlineShoppingCart,
+  HiOutlineArrowNarrowRight,
   GiShoppingBag,
   GiSmartphone,
   GiHeadphones,
@@ -91,6 +103,7 @@ const icons = {
   BiLogOut,
   BiEdit,
   BiCustomize,
+  BiArrowBack,
   IoIosArrowForward,
   MdKeyboardArrowRight,
   MdDashboardCustomize,

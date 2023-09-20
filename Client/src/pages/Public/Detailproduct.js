@@ -46,7 +46,7 @@ const Detailproduct = ({
   const [category, setCategory] = useState(null);
   const [smScreen, setSmScreen] = useState(false);
   const [mdScreen, setMdScreen] = useState(false);
-
+  const [test, setTest] = useState("");
   useEffect(() => {
     if (datas) {
       setId(datas.id);
@@ -61,6 +61,7 @@ const Detailproduct = ({
     if (res.success) {
       setData(res.message);
       setCurrentImages(res.message.images);
+      setTest(res.message?.images[0]);
     }
   };
 
@@ -180,16 +181,23 @@ const Detailproduct = ({
         price:
           currentProduct.length === 0 ? data?.price : currentProduct?.price,
         thumbnail:
-          currentProduct.length === 0 ? data?.thumb : currentProduct?.images[0],
+          currentProduct.length === 0 ? test : currentProduct?.images[0],
         title:
           currentProduct.length === 0 ? data?.title : currentProduct?.title,
       });
+
       if (response.success) {
         toast.success(response.message);
         dispatch(getCurrentUser());
       }
     }
   };
+
+  const handleTest = useCallback((link) => {
+    if (link) {
+      setTest(link);
+    }
+  }, []);
   return (
     <div className="w-full">
       {!isQuickView && (
@@ -223,6 +231,7 @@ const Detailproduct = ({
                 ? currentProduct.images
                 : currentImages
             }
+            handleTest={handleTest}
           />
         </div>
         <div className="w-[39%] md:w-full">
@@ -233,7 +242,9 @@ const Detailproduct = ({
             )} VND`}</h1>
             <span className="flex gap-2 items-center">
               <span className="flex">{ratingStar(data?.totalRatings)}</span>
-              <span>{data?.ratings?.length} review</span>
+              <span className="text-gray-500 text-sm">
+                {data?.ratings?.length} review
+              </span>
             </span>
             <ul className="mt-5">
               {data?.description?.length > 1 &&

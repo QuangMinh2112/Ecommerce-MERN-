@@ -86,7 +86,11 @@ const Product = ({ data, isNew, isHideNew }) => {
     <div className="w-full text-base px-[10px] cursor-pointer">
       <div
         onClick={() =>
-          navigate(`/${data.category.toLowerCase()}/${data._id}/${data.title}`)
+          navigate(
+            `/${data.category.toLowerCase()}/${data._id}/${data.title
+              .replace(/\s+/g, "-")
+              .toLowerCase()}`
+          )
         }
         className="w-full border p-[15px] flex flex-col items-center"
       >

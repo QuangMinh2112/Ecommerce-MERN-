@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 
 import userSlice from "./user/userSlice";
+import blogSlice from "./blog/blogSlice";
 
 const persistConfig = {
   key: "user",
@@ -13,7 +14,7 @@ const persistConfig = {
 
 const userConfig = {
   ...persistConfig,
-  whitelist: ["isLogin", "token", "current"], // tùy chỉnh các state được lưu trong local storage
+  whitelist: ["isLogin", "token", "current", "currentCart"], // tùy chỉnh các state được lưu trong local storage
   // nếu không muốn lưu 1 phần nào đó trong state có thể xài backlist
 };
 
@@ -22,6 +23,7 @@ export const store = configureStore({
     app: appSlice,
     products: productSlice,
     user: persistReducer(userConfig, userSlice),
+    blog: blogSlice,
   },
   middleware: (getDefaultMiddleware) =>
     // getDefaultMiddleware({

@@ -19,7 +19,7 @@ const Banner = () => {
             src={item.src}
             alt={item.src}
             key={item.id}
-            className="w-full h-[465px]"
+            className="w-full h-[463px]"
           />
         ))}
       </Slider>

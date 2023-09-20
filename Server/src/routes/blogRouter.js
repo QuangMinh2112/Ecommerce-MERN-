@@ -4,7 +4,7 @@ const controller = require("../controllers/blog");
 const { verifyAccessToken, isAdmin } = require("../middlewares/verifyJWT");
 const upload = require("../config/cloudinary.config");
 
-router.get("/", [verifyAccessToken, isAdmin], controller.getBlogs);
+router.get("/", controller.getBlogs);
 
 router.post("/create", [verifyAccessToken, isAdmin], controller.createBlog);
 
@@ -23,10 +23,6 @@ router.put(
 
 router.delete("/:blogId", [verifyAccessToken, isAdmin], controller.deleteBlog);
 
-router.get(
-  "/details/:blogId",
-  [verifyAccessToken, isAdmin],
-  controller.getDetailBlog
-);
+router.get("/details/:blogId", controller.getDetailBlog);
 
 module.exports = router;

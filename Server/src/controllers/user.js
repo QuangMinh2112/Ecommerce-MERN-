@@ -79,7 +79,7 @@ const register = asyncHandle(async (req, res) => {
 
 const finalRegister = asyncHandle(async (req, res) => {
   const { token } = req.params;
-
+  console.log(token);
   const notActiveEmail = await User.findOne({ email: new RegExp(`${token}$`) });
   //new RegExp(`${token}$`)->lấy chuối sau cùng ví dụ nguyendoquangminh2112@token thì nó sẽ lấy ra token
   if (notActiveEmail) {
@@ -434,9 +434,9 @@ const cartUser = asyncHandle(async (req, res) => {
     throw new Error("Missing input value !");
   const user = await User.findById(_id).select("cart");
   const checkAlreadyProduct = user?.cart?.find(
-    (item) => item.product.toString() === productId
+    (item) => item.product.toString() === productId && item.color === color
   );
-  if (checkAlreadyProduct && checkAlreadyProduct.color === color) {
+  if (checkAlreadyProduct) {
     const response = await User.updateOne(
       { cart: { $elemMatch: checkAlreadyProduct } },
       {

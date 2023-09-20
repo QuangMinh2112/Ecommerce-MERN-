@@ -101,3 +101,11 @@ export function isEmpty(str) {
 export const isVietnamesePhoneNumberValid = (phone) => {
   return /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/.test(phone);
 };
+// Limited words
+export const checkLengthBiographyArtists = (str, number) => {
+  if (str.length > 295) {
+    return `${str.slice(0, number)} ...`;
+  } else {
+    return str;
+  }
+};
