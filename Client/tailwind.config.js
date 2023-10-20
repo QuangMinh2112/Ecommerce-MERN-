@@ -103,6 +103,7 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/forms")({
       strategy: "class",
+      strategy: "base",
     }),
   ],
 };

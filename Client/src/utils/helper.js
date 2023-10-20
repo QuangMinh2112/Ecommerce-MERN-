@@ -44,36 +44,35 @@ export const validate = (payload, setInvalidFields) => {
       ]);
     }
   }
-  // for (let arr of formatPayload) {
-  //   switch (arr[0]) {
-  //     case "email":
-  //       const regex =
-  //         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //       if (!arr[1].toLowerCase().match(regex)) {
-  //         invalids++;
-  //         setInvalidFields((prev) => [
-  //           ...prev,
-  //           { name: arr[0], message: "Email invalidate !" },
-  //         ]);
-  //       }
-  //       break;
-  //     case "password":
-  //       if (arr[1].length < 6) {
-  //         invalids++;
-  //         setInvalidFields((prev) => [
-  //           ...prev,
-  //           {
-  //             name: arr[0],
-  //             message: "Password must be at least 6 characters !",
-  //           },
-  //         ]);
-  //       }
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-
+  for (let arr of formatPayload) {
+    switch (arr[0]) {
+      case "email":
+        const regex =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!arr[1].toLowerCase().match(regex)) {
+          invalids++;
+          setInvalidFields((prev) => [
+            ...prev,
+            { name: arr[0], message: "Email invalidate !" },
+          ]);
+        }
+        break;
+      case "password":
+        if (arr[1].length < 6) {
+          invalids++;
+          setInvalidFields((prev) => [
+            ...prev,
+            {
+              name: arr[0],
+              message: "Password must be at least 6 characters !",
+            },
+          ]);
+        }
+        break;
+      default:
+        break;
+    }
+  }
   return invalids;
 };
 
@@ -103,7 +102,7 @@ export const isVietnamesePhoneNumberValid = (phone) => {
 };
 // Limited words
 export const checkLengthBiographyArtists = (str, number) => {
-  if (str.length > 295) {
+  if (str?.length > 295) {
     return `${str.slice(0, number)} ...`;
   } else {
     return str;

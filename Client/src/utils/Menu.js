@@ -235,7 +235,7 @@ export const adminSidebar = [
   {
     id: 3,
     type: "Parent",
-    text: "Manager Product",
+    text: "Manage Product",
     icon: <FaProductHunt size="25" />,
     submenu: [
       {
@@ -254,6 +254,22 @@ export const adminSidebar = [
     text: "Manage Order",
     path: `/${path.ADMIN}/${path.MANAGE_ORDER}`,
     icon: <HiOutlineShoppingCart size="25" />,
+  },
+  {
+    id: 5,
+    type: "Parent",
+    text: "Blogs",
+    icon: <FaProductHunt size="25" />,
+    submenu: [
+      {
+        text: "Create Blog",
+        path: `/${path.ADMIN}/${path.CREATE_BLOG}`,
+      },
+      {
+        text: "Manage Blog",
+        path: `/${path.ADMIN}/${path.MANAGE_BLOG}`,
+      },
+    ],
   },
 ];
 

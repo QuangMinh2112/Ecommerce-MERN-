@@ -17,8 +17,8 @@ const DealDaily = () => {
   const [exprimeTime, setExprimeTime] = useState(false);
   const fetchDealDaily = async () => {
     const res = await apiGetProducts({
-      limit: 1,
-      page: Math.round(Math.random() * 10),
+      // limit: 1,
+      // page: Math.round(Math.random() * 10),
       totalRatings: 5,
     });
     if (res.success) {

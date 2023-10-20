@@ -20,11 +20,11 @@ const Navbar = () => {
         ))}
       </div>
       <div>
-        <input
+        {/* <input
           type="text"
           placeholder="Search something"
           className="outline-none"
-        />
+        /> */}
       </div>
     </div>
   );

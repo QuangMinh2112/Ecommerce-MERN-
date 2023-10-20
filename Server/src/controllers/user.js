@@ -79,7 +79,6 @@ const register = asyncHandle(async (req, res) => {
 
 const finalRegister = asyncHandle(async (req, res) => {
   const { token } = req.params;
-  console.log(token);
   const notActiveEmail = await User.findOne({ email: new RegExp(`${token}$`) });
   //new RegExp(`${token}$`)->lấy chuối sau cùng ví dụ nguyendoquangminh2112@token thì nó sẽ lấy ra token
   if (notActiveEmail) {
@@ -94,7 +93,6 @@ const finalRegister = asyncHandle(async (req, res) => {
 
 const login = asyncHandle(async (req, res) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
     return res.status(400).json({
       success: false,
@@ -105,6 +103,7 @@ const login = asyncHandle(async (req, res) => {
   if (user && (await user.isComparePassword(password))) {
     //get password and role , only return for user is userData
     const { password, role, refreshToken, ...userData } = user.toObject();
+
     // create accessToken
     const accessToken = generatorAccessToken(user?._id, role);
     // create refreshToken

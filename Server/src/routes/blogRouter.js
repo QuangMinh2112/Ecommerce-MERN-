@@ -6,7 +6,12 @@ const upload = require("../config/cloudinary.config");
 
 router.get("/", controller.getBlogs);
 
-router.post("/create", [verifyAccessToken, isAdmin], controller.createBlog);
+router.post(
+  "/create",
+  [verifyAccessToken, isAdmin],
+  upload.fields([{ name: "images", maxCount: 1 }]),
+  controller.createBlog
+);
 
 router.post("/like", [verifyAccessToken], controller.likeBlog);
 

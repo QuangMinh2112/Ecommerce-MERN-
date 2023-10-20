@@ -24,7 +24,7 @@ const SelectQuantity = ({
       </button>
       <input
         type="text"
-        className="w-10 text-center h-[35px] border outline-none text-black"
+        className="w-10 text-center h-[35px] border  outline-none text-black"
         value={valueQuantity}
         onChange={(e) => handleQuantity(e.target.value)}
       />

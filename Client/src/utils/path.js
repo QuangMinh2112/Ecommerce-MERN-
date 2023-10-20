@@ -22,6 +22,8 @@ const path = {
   MANAGE_PRODUCT: "manage-product",
   MANAGE_ORDER: "manage-order",
   CREATE_PRODUCT: "create-product",
+  CREATE_BLOG: "create-blog",
+  MANAGE_BLOG: "manage-blog",
 
   //Member
   MEMBER: "member",

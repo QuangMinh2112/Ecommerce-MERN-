@@ -4,7 +4,6 @@ import { path } from "./utils";
 import {
   Blog,
   Checkout,
-  Contact,
   DetailBlog,
   Detailproduct,
   FinalRegister,
@@ -30,6 +29,11 @@ import Wishlist from "pages/Member/Wishlist";
 import { showCart, showSideBar } from "redux/app/appSlice";
 import SidebarResponsive from "components/Sidebar/Default/SidebarResponsive";
 import { getBlog } from "redux/blog/asyncAction";
+import ManageBlog from "pages/Admin/Blogs/ManageBlog";
+import CreateBlog from "pages/Admin/Blogs/CreateBlog";
+const LazyContact = React.lazy(
+  async () => await import("./pages/Public/Contact")
+);
 function App() {
   const dispatch = useDispatch();
   const { isShowModal, modalChildren, isShowCart, isShowSideBar } = useSelector(
@@ -70,7 +74,14 @@ function App() {
           />
           <Route path={path.BLOGS} element={<Blog />} />
           <Route path={path.DETAIL_BLOGS} element={<DetailBlog />} />
-          <Route path={path.CONTACTS} element={<Contact />} />
+          <Route
+            path={path.CONTACTS}
+            element={
+              <React.Suspense fallback="Loading...">
+                <LazyContact />
+              </React.Suspense>
+            }
+          />
           <Route path={path.ALL} element={<Home />} />
           <Route path={path.CART} element={<ShoppingCart />} />
         </Route>
@@ -81,6 +92,8 @@ function App() {
           <Route path={path.MANAGE_USER} element={<ManageUser />} />
           <Route path={path.MANAGE_PRODUCT} element={<ManageProduct />} />
           <Route path={path.CREATE_PRODUCT} element={<CreateProduct />} />
+          <Route path={path.CREATE_BLOG} element={<CreateBlog />} />
+          <Route path={path.MANAGE_BLOG} element={<ManageBlog />} />
         </Route>
         {/* END ADMIN */}
 

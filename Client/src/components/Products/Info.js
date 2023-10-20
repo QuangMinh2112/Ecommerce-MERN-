@@ -144,11 +144,11 @@ const ProductInfo = ({
             <div className="flex flex-col gap-5">
               {ratings?.map((item) => (
                 <Comment
-                  key={item._id}
-                  comment={item.comment}
-                  star={item.star}
+                  key={item?._id}
+                  comment={item?.comment}
+                  star={item?.star}
                   updatedAt={item?.updatedAt}
-                  name={`${item.postedBy.firstName} ${item.postedBy.lastName}`}
+                  name={`${item?.postedBy?.firstName} ${item?.postedBy?.lastName}`}
                 />
               ))}
             </div>

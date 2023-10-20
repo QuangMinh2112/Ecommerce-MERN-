@@ -110,7 +110,7 @@ const Header = () => {
                   {+current?.role === 2 && (
                     <Link
                       className="p-2 w-full block hover:bg-sky-100"
-                      to={`/${path.ADMIN}/${path.DASHBOARD}`}
+                      to={`/${path.ADMIN}/${path.MANAGE_USER}`}
                     >
                       Admin
                     </Link>

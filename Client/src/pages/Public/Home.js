@@ -93,8 +93,6 @@ const Home = () => {
           <Swiper
             spaceBetween={50}
             slidesPerView={smScreen ? 1 : mdScreen ? 2 : 3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
           >
             {blogs?.map((item) => (
               <SwiperSlide>

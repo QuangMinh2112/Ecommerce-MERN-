@@ -5,33 +5,16 @@ const Coupon = require("../models/coupon");
 
 const createOrder = asyncHandler(async (req, res) => {
   const { _id } = req.user;
-  const { coupon } = req.body;
-  if (!coupon) throw new Error("Missing input value !");
-  const cartUser = await User.findById(_id)
-    .select("cart")
-    .populate("cart.product", "title price");
-  const products = cartUser?.cart.map((item) => ({
-    product: item.product._id,
-    count: item.quantity,
-    color: item.color,
-  }));
-  let total = cartUser?.cart?.reduce(
-    (sum, item) => item.product.price * item.quantity + sum,
-    0
-  );
-  const createData = { products, total, orderBy: _id };
-  if (coupon) {
-    const couponCode = await Coupon.findById(coupon);
-    total =
-      Math.round((total * (1 - +couponCode.discount / 100)) / 1000) * 1000 ||
-      total;
-    createData.total = total;
-    createData.coupon = coupon;
+  const { products, total, address, status } = req.body;
+  if (address) {
+    await User.findByIdAndUpdate(_id, { address, cart: [] });
   }
-  const result = await Order.create(createData);
+  const data = { products, total, postedBy: _id };
+  if (status) data.status = status;
+  const result = await Order.create(data);
   return res.status(200).json({
     success: result ? true : false,
-    message: result,
+    message: result ? result : "Something went wrong !",
   });
 });
 const updateStatusOrder = asyncHandler(async (req, res) => {

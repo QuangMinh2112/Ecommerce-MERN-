@@ -1,10 +1,11 @@
 import { apiGetBlogs } from "apis";
 import { BreadCrumb } from "components";
+import DOMPurify from "dompurify";
 import moment from "moment";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { icons } from "utils";
 import { checkLengthBiographyArtists } from "utils/helper";
 const { HiOutlineArrowNarrowRight, BsDot } = icons;
@@ -33,9 +34,9 @@ const Blog = () => {
         </div>
       </header>
       <div className="w-full xl:w-main m-auto my-10 flex">
-        <div className="w-4/5">
+        <div className="w-3/4 flex flex-col gap-5">
           {data?.map((item) => (
-            <div className="flex gap-3 mb-5 h-[280px] pr-3">
+            <div key={item._id} className="flex gap-3 mb-5 h-[280px] pr-3">
               <div className="w-1/2">
                 <img
                   src={item?.images}
@@ -44,9 +45,14 @@ const Blog = () => {
                 />
               </div>
               <div className="w-1/2 flex flex-col gap-3">
-                <h2 className="font-bold cursor-pointer hover:text-main">
+                <NavLink
+                  to={`${item?._id}/${item?.title
+                    .replace(/\s+/g, "-")
+                    .toLowerCase()}`}
+                  className="font-bold hover:text-main cursor-pointer"
+                >
                   {item?.title}
-                </h2>
+                </NavLink>
                 <p className="flex gap-3 items-center">
                   <span className="text-gray-500">By {item?.author}</span>
                   <span className="flex items-center text-gray-500">
@@ -58,9 +64,16 @@ const Blog = () => {
                     {`${item?.numberViews} views`}
                   </span>
                 </p>
-                <p className="text-gray-600">
-                  {checkLengthBiographyArtists(item?.description, 200)}
-                </p>
+                <div className="text-gray-600">
+                  <p
+                    className="text-gray-600"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        checkLengthBiographyArtists(item?.description, 200)
+                      ),
+                    }}
+                  ></p>
+                </div>
                 <span className="flex items-center gap-2 text-main hover:text-black cursor-pointer">
                   <HiOutlineArrowNarrowRight />
                   Read more
@@ -69,7 +82,7 @@ const Blog = () => {
             </div>
           ))}
         </div>
-        <div className="w-1/5">
+        <div className="w-1/4">
           <div className="w-full border border-main mb-5">
             <h6 className="bg-main text-white py-[14px] px-[15px] mb-0 font-bold">
               RECENT ARTICLES

@@ -1,12 +1,13 @@
 import { apiGetDetailBlog } from "apis";
 import { BreadCrumb } from "components";
+import DOMPurify from "dompurify";
 import moment from "moment";
 import React, { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { icons } from "utils";
-import { capitalize_Words } from "utils/helper";
+import { capitalize_Words, checkLengthBiographyArtists } from "utils/helper";
 
 const { BiArrowBack, BsDot } = icons;
 const DetailBlog = () => {
@@ -44,23 +45,8 @@ const DetailBlog = () => {
         ref={modelQuickViewRef}
       >
         <div className="w-main">
-          <h3 className="font-semibold text-[18px] mb-[10px]">
-            {location?.pathname
-              ?.split("/")
-              [location?.pathname?.split("/").length - 1].split("-")
-              .join(" ")
-              .toUpperCase()}
-          </h3>
-          <BreadCrumb
-            category=""
-            title={capitalize_Words(
-              location?.pathname
-                ?.split("/")
-                [location?.pathname?.split("/").length - 1].split("-")
-                .join(" ")
-                .toUpperCase()
-            )}
-          />
+          <h3 className="font-semibold text-[18px] mb-[10px]">{data?.title}</h3>
+          <BreadCrumb category="" title={data?.title} />
         </div>
       </header>
       <div className="w-full xl:w-main m-auto">
@@ -79,7 +65,14 @@ const DetailBlog = () => {
           <img src={data?.images} alt="Images" className="w-full h-[780px]" />
         </div>
         <div className="mt-4">
-          <p className="text-gray-600">{data?.description}</p>
+          <p
+            className="text-gray-600"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                checkLengthBiographyArtists(data?.description)
+              ),
+            }}
+          ></p>
         </div>
 
         <div className="flex justify-end pt-4">

@@ -57,9 +57,12 @@ const CustomizeVariant = ({
       if (data.images) {
         for (let image of data.images) formData.append("images", image);
       }
-      dispatch(showModal({ isShowModal: true, modalChildren: <Loading /> }));
+      // dispatch(showModal({ isShowModal: true, modalChildren: <Loading /> }));
       const response = await apiAddVariant(formData, customizeVariant._id);
-      dispatch(showModal({ isShowModal: false, modalChildren: null }));
+      if (response.success) {
+        toast.success(response.message);
+        // dispatch(showModal({ isShowModal: false, modalChildren: null }));
+      } else toast.error(response.message);
     }
   };
 

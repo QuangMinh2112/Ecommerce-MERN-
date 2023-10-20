@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import moment from "moment";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -28,9 +29,15 @@ const Blog = ({ data }) => {
         <span className="text-sm text-gray-500">
           {moment(data?.createdAt).format("MMMM Do YYYY")}
         </span>
-        <p className="text-sm text-gray-500 leading-6">
-          {checkLengthBiographyArtists(data?.description, 148)}
-        </p>
+        {/* <p>{checkLengthBiographyArtists(data?.description, 148)}</p> */}
+        <div
+          className="text-sm text-gray-500 leading-6"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(
+              checkLengthBiographyArtists(data?.description, 148)
+            ),
+          }}
+        ></div>
       </div>
     </div>
   );

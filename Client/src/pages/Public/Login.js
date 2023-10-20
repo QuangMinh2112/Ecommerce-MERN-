@@ -264,9 +264,9 @@ const Login = ({ navigate, dispatch }) => {
                 </span>
               )}
             </div>
-            <NavLink className="text-center block" to={`/${path.HOME}`}>
+            {/* <NavLink className="text-center block" to={`/${path.HOME}`}>
               Home
-            </NavLink>
+            </NavLink> */}
           </form>
         </div>
       </div>

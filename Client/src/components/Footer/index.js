@@ -16,7 +16,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Email address"
-              className="p-4 pr-0 rounded-l-full w-full outline-none bg-[#F04646] text-gray-100 placeholder:text-sm placeholder:text-gray-100 placeholder:opacity-60"
+              className="p-4 pr-0 rounded-l-full w-full outline-none border-none bg-[#F04646] text-gray-100 placeholder:text-sm placeholder:text-gray-100 placeholder:opacity-60"
             />
             <div className="w-[56px] h-[56px]  bg-[#F04646] rounded-r-full flex items-center">
               <MdEmail size={20} color="white" />

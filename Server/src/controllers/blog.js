@@ -1,8 +1,11 @@
 const asyncHandler = require("express-async-handler");
 const Blog = require("../models/blog");
 const createBlog = asyncHandler(async (req, res) => {
-  const { title, category, description, images } = req.body;
-  if (!title || !category || !description) throw new Error("Missing Input !");
+  const files = req?.files;
+
+  const { title, description } = req.body;
+  if (files.images) req.body.images = files.images[0].path;
+  if (!title || !description) throw new Error("Missing Input !");
 
   const newBlog = await Blog.create(req.body);
   return res.status(200).json({

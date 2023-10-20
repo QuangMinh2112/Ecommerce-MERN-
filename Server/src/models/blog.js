@@ -34,8 +34,6 @@ var blogSchema = new mongoose.Schema(
     ],
     images: {
       type: String,
-      default:
-        "https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmxvZyUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80",
     },
     author: {
       type: String,
